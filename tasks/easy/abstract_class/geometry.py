@@ -21,3 +21,56 @@
 Периметр = 4 * a
 Площадь = a ** 2
 """
+from abc import abstractmethod
+
+
+class Shape:
+    pi = 3.14
+
+    @abstractmethod
+    def get_perimeter(self):
+        pass
+
+    @abstractmethod
+    def get_square(self):
+        pass
+
+
+class Circle(Shape):
+    radius: float
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def get_perimeter(self):
+        return 2 * Shape.pi * self.radius
+
+    def get_square(self):
+        return Shape.pi * self.radius ** 2
+
+
+class Rectangle(Shape):
+    first_side_length: float
+    second_side_length: float
+
+    def __init__(self, first_side_length, second_side_length):
+        self.first_side_length = first_side_length
+        self.second_side_length = second_side_length
+
+    def get_perimeter(self):
+        return 2 * self.first_side_length + 2 * self.second_side_length
+
+    def get_square(self):
+        return self.first_side_length * self.second_side_length
+
+
+class Square(Rectangle):
+
+    def __init__(self, first_side_length):
+        super().__init__(first_side_length, None)
+
+    def get_perimeter(self):
+        return 4 * self.first_side_length
+
+    def get_square(self):
+        return self.first_side_length ** 2
