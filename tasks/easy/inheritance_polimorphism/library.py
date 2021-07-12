@@ -42,17 +42,25 @@ class LibraryReader(Person):
         self.books = books
 
     def take_books(self, *args):
-        for i in *args
-            self.books.extend(*args)
-        if len(*args) <= 3:
+        for book_names in args:
+            self.books.append(book_names)
+        if len(args) <= 3:
             print(f"{self.fio} взял книги: {self.books}")
         else:
             print(f"{self.fio} взял {len(*args)} книги")
 
     def return_books(self, *args):
-        pass
+        for book_name in args:
+            if book_name not in self.books:
+                print(f"{self.fio} не брал {book_name}")
+            else:
+                self.books.remove(book_name)
+        print(f"{self.fio} вернул {args}")
 
 
 person_1 = LibraryReader("killreal", 295534097, 2219, ["mqqq", "qweqwe"])
 
 person_1.take_books('qweqwe', 'qweqsdd')
+person_1.return_books('mqqq')
+print(person_1.books)
+person_1.return_books('kakaak')
