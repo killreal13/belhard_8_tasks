@@ -53,9 +53,10 @@ class LibraryReader(Person):
         for book_name in args:
             if book_name not in self.books:
                 print(f"{self.fio} не брал {book_name}")
+                break
             else:
                 self.books.remove(book_name)
-        print(f"{self.fio} вернул {args}")
+            print(f"{self.fio} вернул {args}")
 
 
 person_1 = LibraryReader("killreal", 295534097, 2219, ["mqqq", "qweqwe"])
