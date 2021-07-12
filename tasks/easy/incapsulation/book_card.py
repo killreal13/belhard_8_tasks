@@ -22,20 +22,21 @@ num_copies должны быть больше 0
 
 
 class BookCard:
-    _author: str = 'author name'
-    _title: str = 'book name'
-    _publishing_house: str = 'publishing house name'
-    _year: int = 2000
-    _num_pages: int = 10
-    _num_copies: int = 10
+    _author: str
+    _title: str
+    _publishing_house: str
+    _year: int
+    _num_pages: int
+    _num_copies: int
 
+    @property
     def __init__(self, author, title, puplishing_house, year, num_pages, num_copies):
-        self._author = author
-        self._title = title
-        self._publishing_house = puplishing_house
-        self._year = year
-        self._num_pages = num_pages
-        self._num_copies = num_copies
+        return self._author = author
+        return self._title = title
+        return self._publishing_house = puplishing_house
+        return self._year = year
+        return self._num_pages = num_pages
+        return self._num_copies = num_copies
 
     def __eq__(self, other):
         return self._year == other._year
@@ -44,79 +45,21 @@ class BookCard:
         return self._year < other._year
 
     @property
-    def author(self):
+    def book(self):
         return self._author, self._title, self._publishing_house, self._year, self._num_pages, self._num_copies
 
-    @author.setter
-    def author(self, author):
-        if type(author) != str:
+    @book.setter
+    def book(self, author, title, publishing_house, year, num_pages, num_copies):
+        if type(self._author) != str or type(self._title) != str or type(self._publishing_house) != str or type(self._year) != int or type(self._num_pages) != int or type(self._num_copies) != int:
             raise TypeError
+        elif self._year <= 0 or self._num_pages <= 0 or self._num_copies <= 0:
+            raise ValueError
         else:
             self._author = author
-
-    @property
-    def title(self):
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        if type(title) != str:
-            raise TypeError
-        else:
             self._title = title
-
-    @property
-    def publishing_house(self):
-        return self._publishing_house
-
-    @publishing_house.setter
-    def publishing_house(self, publishing_house):
-        if type(publishing_house) != str:
-            raise TypeError
-        else:
             self._publishing_house = publishing_house
-
-    @property
-    def year(self):
-        return self._year
-
-    @year.setter
-    def year(self, year):
-        if type(year) != int:
-            raise TypeError
-        elif year <= 0:
-            raise ValueError
-        else:
             self._year = year
-
-    @property
-    def num_pages(self):
-        return self._num_pages
-
-    @num_pages.setter
-    def num_pages(self, num_pages):
-        if type(num_pages) != int:
-            raise TypeError
-        elif num_pages <= 0:
-            raise ValueError
-        else:
             self._num_pages = num_pages
-
-    @property
-    def num_copies(self):
-        return self._num_copies
-
-    @num_copies.setter
-    def num_copies(self, num_copies):
-        if type(num_copies) != int:
-            raise TypeError
-        elif num_copies <= 0:
-            raise ValueError
-        else:
             self._num_copies = num_copies
-
-book = BookCard()
-
-book.author("qeqe")
 
 
