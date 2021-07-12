@@ -57,11 +57,3 @@ class LibraryReader(Person):
             else:
                 self.books.remove(book_name)
             print(f"{self.fio} вернул {args}")
-
-
-person_1 = LibraryReader("killreal", 295534097, 2219, ["mqqq", "qweqwe"])
-
-person_1.take_books('qweqwe', 'qweqsdd')
-person_1.return_books('mqqq')
-print(person_1.books)
-person_1.return_books('kakaak')
