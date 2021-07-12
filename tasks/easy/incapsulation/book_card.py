@@ -19,3 +19,28 @@ num_copies должны быть больше 0
 
 реализовать через property
 """
+
+
+class BookCard:
+    _author: str
+    _title: str
+    _publishing_house: str
+    _year: int
+    _num_pages: int
+    _num_copies: int
+
+    def __init__(self, author, title, puplishing_house, year, num_pages, num_copies):
+        self._author = author
+        self._title = title
+        self._publishing_house = puplishing_house
+        self._year = year
+        self._num_pages = num_pages
+        self._num_copies = num_copies
+
+    def __eq__(self, other):
+        return self._publishing_house == other._publishing_house
+
+    def __lt__(self, other):
+        return self._publishing_house < other._publishing_house
+
+

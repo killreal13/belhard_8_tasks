@@ -15,3 +15,27 @@ print_fuel_type, который будет печатать "Электриче�
 Создать объект класса HybridCars. Потренироваться вызывать методы через super,
 через имя класса. Просмотреть MRO
 """
+
+
+class Cars:
+
+    def print_fuel_type(self):
+        raise NotImplementedError
+
+
+class PetrolMotorCars(Cars):
+
+    def print_fuel_type(self):
+        print('Бензин')
+
+
+class Electric(Cars):
+
+    def print_fuel_type(self):
+        print('Электричество')
+
+
+class HybridCars(Cars):
+
+    def print_fuel_type(self):
+        print('Бензин + электричество')
