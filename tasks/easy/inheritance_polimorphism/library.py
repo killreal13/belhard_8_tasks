@@ -21,3 +21,38 @@
   и "Петров В. В. вернул 4 книги". Если какой то книги нет, то выводится сообщение
   "Петров В. В. не брал Рассказы"
 """
+
+
+class Person:
+    fio: str
+    phone: int
+
+    def __init__(self, fio, phone):
+        self.fio = fio
+        self.phone = phone
+
+
+class LibraryReader(Person):
+    id: int
+    books = []
+
+    def __init__(self, fio, phone, id, books):
+        super().__init__(fio, phone)
+        self.id = id
+        self.books = books
+
+    def take_books(self, *args):
+        for i in *args
+            self.books.extend(*args)
+        if len(*args) <= 3:
+            print(f"{self.fio} взял книги: {self.books}")
+        else:
+            print(f"{self.fio} взял {len(*args)} книги")
+
+    def return_books(self, *args):
+        pass
+
+
+person_1 = LibraryReader("killreal", 295534097, 2219, ["mqqq", "qweqwe"])
+
+person_1.take_books('qweqwe', 'qweqsdd')
