@@ -30,9 +30,10 @@
 - move - который принимает количество километров, увеличивает на это количество пробег
   и печатает "{brand} {model} пролетел {km} километров"
 """
+from abc import ABC, abstractmethod
 
 
-class Transport:
+class Transport(ABC):
     brand: str
     model: str
     issue_year: int
@@ -44,6 +45,7 @@ class Transport:
         self.issue_year = issue_year
         self.color = color
 
+    @abstractmethod
     def move(self):
         raise NotImplementedError
 

@@ -21,10 +21,10 @@
 Периметр = 4 * a
 Площадь = a ** 2
 """
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Shape:
+class Shape(ABC):
     pi = 3.14
 
     @abstractmethod

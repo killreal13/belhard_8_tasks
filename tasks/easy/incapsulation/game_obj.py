@@ -9,3 +9,17 @@ move(delta_x, delta_y)
 
 реализовать через property
 """
+
+
+class GameObject:
+    x: int
+    y: int
+
+    @property
+    def move(self):
+        return self.x, self.y
+
+    @move.setter
+    def move(self, x, y):
+        self.x = x
+        self.y = y

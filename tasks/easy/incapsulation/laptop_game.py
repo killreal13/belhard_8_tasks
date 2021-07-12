@@ -12,3 +12,9 @@
   меньше, чем характеристики компьютера, то вывести
   "На данном ПК есть возможность играть в {game_name}"
 """
+
+
+class Laptop:
+    cpu_cores: int
+    gpu_total: int
+    ram_total
