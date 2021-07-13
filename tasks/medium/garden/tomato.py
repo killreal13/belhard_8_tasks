@@ -17,3 +17,6 @@ class Tomato:
         else:
             return False
 
+to_1 = Tomato(1)
+to_2 = Tomato(2)
+to_3 = Tomato(3)
