@@ -5,7 +5,7 @@ class TomatoBush(Tomato):
     tomato_list: list = []
 
     def __init__(self, *args):
-        self.tomato_list = args
+        self.tomato_list = list(args)
         self.ripeness = self.states[0]
 
     def grow_all(self):
