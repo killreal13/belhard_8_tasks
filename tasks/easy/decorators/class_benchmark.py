@@ -12,41 +12,42 @@
 """
 import time
 
-# start_time = time.time()
-# end_time = time.time()
-# difference = e - s
 
-
-def benchmark(cls):
+def method_dec(method):
     def wrapper(*args, **kwargs):
-        for
+        print(f'Выполняем {method.__name__} с args: {args} и kwargs: {kwargs}')
+        start_time = time.time()
+        print(f'Время начала: {start_time}')
+        method(*args, **kwargs)
+        print(f'Выполнено {method.__name__}')
+        end_time = time.time()
+        print(f'Время окончания: {end_time}')
+        print(f'Время затрачено на выполнение: {end_time - start_time}')
+    return wrapper
 
 
-@benchmark
+def class_decorator(cls):
+    methods = {k: v for k, v in cls.__dict__.items() if callable(v)}
+    for name, method in methods.items():
+        method_name = str(method.__name__)
+        if method_name.startswith('__'):
+            continue
+        else:
+            dec_method = method_dec(method)
+            setattr(cls, name, dec_method)
+    return cls
+
+
+@class_decorator
 class Nations:
     skin_color: str
     people_amount: int
-    sex: str
-    iq: int
+    average_iq: int
 
-    def __init__(self, skin_color, people_amount, sex, iq):
+    def __init__(self, skin_color, people_amount, average_iq):
         self.skin_color = skin_color
         self.people_amount = people_amount
-        self.sex = sex
-        self.iq = iq
-
-    def __repr__(self):
-        return f"{self.skin_color} has {self.iq}"
-
-    def sex_changing(self):
-        if self.sex == "male":
-            self.sex = "female"
-            return self.sex
-        elif self.sex == "female":
-            self.sex = "male"
-            return self.sex
-        else:
-            print(f"{self.sex} does not exist, there are only two genders!")
+        self.average_iq = average_iq
 
     def people_reproduction(self):
         if self.skin_color == "yellow":
@@ -56,20 +57,17 @@ class Nations:
             self.people_amount += self.people_amount * 0.5
             return self.people_amount
 
+    def self_improve(self):
+        self.average_iq += 10
+
     def genocide(self):
         self.people_amount = 0
         return self.people_amount
 
     def __eq__(self, other):
-        return self.iq == other.iq
+        return self.average_iqiq == other.average_iq
 
     def __lt__(self, other):
-        return self.iq < other.iq
+        return self.average_iqiq < other.average_iq
 
 
-russian = Nations("white", 12312333, "male", 144)
-asian = Nations("yellow", 123123, "female", 222)
-qweqwe = Nations("qqqq", 123121233, "female", 15)
-asian1 = Nations("yellow", 123123, "female", 2233)
-
-nations = [russian, asian, qweqwe, asian1]
