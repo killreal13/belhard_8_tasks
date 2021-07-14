@@ -8,15 +8,14 @@ class Tomato:
         self.ripeness = self.states[0]
 
     def grow(self):
-        current_stage = self.states.index(self.ripeness)
-        self.ripeness = self.states[current_stage + 1]
+        if self.ripeness != self.states[3]:
+            current_stage = self.states.index(self.ripeness)
+            self.ripeness = self.states[current_stage + 1]
+        else:
+            return self.ripeness
 
     def is_ripe(self):
         if self.ripeness == self.states[3]:
             return True
         else:
             return False
-
-to_1 = Tomato(1)
-to_2 = Tomato(2)
-to_3 = Tomato(3)
