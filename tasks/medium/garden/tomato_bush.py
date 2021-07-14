@@ -26,7 +26,7 @@ class TomatoBush:
     def give_away_all(self):
         tomato_list_2 = [i for i in self.tomato_list]
         self.tomato_list.clear()
-        print(len(tomato_list_2))
+        return tomato_list_2
 
 
 
