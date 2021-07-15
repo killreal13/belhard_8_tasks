@@ -6,11 +6,11 @@ ValueError
 
 
 def attribute_checker(method):
-    def wrapper(self, name, values):
+    def wrapper(self, name, value):
         attribute_annotation = self.__annotations__.get(name)
-        if type(values) != attribute_annotation:
+        if type(value) != attribute_annotation:
             raise ValueError
-        return method(self, name, values)
+        return method(self, name, value)
     return wrapper
 
 
