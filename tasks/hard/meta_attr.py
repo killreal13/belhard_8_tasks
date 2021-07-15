@@ -13,18 +13,22 @@ File "<stdin>", line 20, in <module>
 
 Сделать возможным данный механизм
 """
+def getattr_1(method):
+    def wrapper(self, name, value):
+        print(name)
+    return wrapper
+
 
 
 class AttributeMeta(type):
     def __new__(mcs, name, bases, attr):
         new_class = super().__new__(mcs, name, bases, attr)
-        new_attrs = {k: v for k, v in bases.items()}
-        for k, v in new_attrs.items():
-            setattr(new_class, k, v)
+        new_class.__setattr__ = getattr_1(new_class.__setattr__)
+        print(new_class.__setattr__)
         return new_class
 
 
+class Man(metaclass=AttributeMeta):
+    pass
 
-
-
-class me = Man(height = 180, weight = 80)
+me = Man(qwe = 80, qr = 100)
