@@ -10,7 +10,7 @@ def attribute_checker(method):
         attribute_annotation = self.__annotations__.get(name)
         if type(values) != attribute_annotation:
             raise ValueError
-        return method
+        return method(self, name, values)
     return wrapper
 
 
@@ -34,3 +34,4 @@ class Strings(metaclass=AttributeTypeMeta):
         print(self.values, a)
 
 aasd = Strings('123', 123)
+print(aasd.values)
