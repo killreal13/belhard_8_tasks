@@ -34,8 +34,8 @@ class Warrior:
         self.health_points = 100
 
     def hit(self, other_warrior):
-            other_warrior.health_points -= 20
-            print(f'{self.name} attacked {other_warrior.name} and left him {other_warrior.health_points} health points')
+        other_warrior.health_points -= 20
+        print(f'{self.name} attacked {other_warrior.name} and left him {other_warrior.health_points} health points')
 
 
 class Arena:
