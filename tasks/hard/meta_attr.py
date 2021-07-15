@@ -13,3 +13,18 @@ File "<stdin>", line 20, in <module>
 
 Сделать возможным данный механизм
 """
+
+
+class AttributeMeta(type):
+    def __new__(mcs, name, bases, attr):
+        new_class = super().__new__(mcs, name, bases, attr)
+        new_attrs = {k: v for k, v in bases.items()}
+        for k, v in new_attrs.items():
+            setattr(new_class, k, v)
+        return new_class
+
+
+
+
+
+class me = Man(height = 180, weight = 80)

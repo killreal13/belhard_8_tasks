@@ -60,12 +60,13 @@ class Arena:
                 break
 
 
-warrior_1 = Warrior('Deiveson Figueiredo')
-warrior_2 = Warrior('Dustin Poirier')
-warrior_3 = Warrior('Edson Barboza')
-warrior_4 = Warrior('Charles Oliveira')
-warrior_5 = Warrior('Max Holloway')
+if __name__ == '__main__':
+    warrior_1 = Warrior('Deiveson Figueiredo')
+    warrior_2 = Warrior('Dustin Poirier')
+    warrior_3 = Warrior('Edson Barboza')
+    warrior_4 = Warrior('Charles Oliveira')
+    warrior_5 = Warrior('Max Holloway')
 
-warrior_list = [warrior_1, warrior_2, warrior_3, warrior_4, warrior_5]
-arena_1 = Arena(warrior_list)
-arena_1.fight()
+    warrior_list = [warrior_1, warrior_2, warrior_3, warrior_4, warrior_5]
+    arena_1 = Arena(warrior_list)
+    arena_1.fight()
