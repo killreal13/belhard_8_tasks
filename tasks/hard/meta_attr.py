@@ -15,20 +15,14 @@ File "<stdin>", line 20, in <module>
 """
 
 
-def getattr_1(method, cls):
-    def wrapper(self, *args, **kwargs):
-        print(kwargs)
-        new_dict = {k: v for k, v in kwargs.items()}
-        for k, v in new_dict.items():
-            setattr(cls, k, v)
-        return method(cls)
-    return wrapper
+def getattr_1(self, **kwargs):
+    self.__dict__.update(kwargs)
 
 
 class AttributeMeta(type):
     def __new__(mcs, name, bases, attr):
         new_class = super().__new__(mcs, name, bases, attr)
-        mcs.__call__ = getattr_1(mcs.__call__, new_class)
+        new_class.__init__ = getattr_1
         return new_class
 
 
@@ -36,5 +30,4 @@ class Man(metaclass=AttributeMeta):
     pass
 
 
-me = Man(qwe=80, qr=100)
-print(me.qr)
+me = Man(height=80, weigt=100)
