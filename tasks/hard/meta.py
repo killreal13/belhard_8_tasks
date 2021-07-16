@@ -8,7 +8,7 @@ ValueError
 def attribute_checker(method):
     def wrapper(self, name, value):
         attribute_annotation = self.__annotations__.get(name)
-        if type(value) != attribute_annotation:
+        if type(value) != attribute_annotation and attribute_annotation is not None:
             raise ValueError
         return method(self, name, value)
     return wrapper
@@ -33,5 +33,6 @@ class Strings(metaclass=AttributeTypeMeta):
     def print_values(self, a):
         print(self.values, a)
 
-aasd = Strings('123', 123)
-print(aasd.values)
+
+strings_1 = Strings('123', 123)
+print(strings_1.values)
