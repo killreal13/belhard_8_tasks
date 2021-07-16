@@ -2,6 +2,5 @@ from house import House
 
 
 class Townhouse(House):
-    def __init__(self, address, cost, area=60):
-        super().__init__(address, area, cost)
-        self.area = 60
+    def __init__(self, address, cost):
+        super().__init__(address, 60, cost)
