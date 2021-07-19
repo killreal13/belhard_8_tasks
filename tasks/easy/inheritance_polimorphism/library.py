@@ -47,7 +47,7 @@ class LibraryReader(Person):
         if len(args) <= 3:
             print(f"{self.fio} взял книги: {self.books}")
         else:
-            print(f"{self.fio} взял {len(*args)} книги")
+            print(f"{self.fio} взял {len(args)} книги")
 
     def return_books(self, *args):
         for book_name in args:

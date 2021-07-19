@@ -12,30 +12,22 @@ move(delta_x, delta_y)
 
 
 class GameObject:
-    x: int
-    y: int
+    __x: int
+    __y: int
 
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def move(self, delta_x, delta_y):
-        self.x = delta_x
-        self.y = delta_y
-
+        self.__x = x
+        self.__y = y
 
     @property
     def delta_x(self):
-        return self.x
-
-    @delta_x.setter
-    def delta_x(self, delta_x):
-        self.x = delta_x
+        return self.__x
 
     @property
     def delta_y(self):
-        return self.y
+        return self.__y
 
-    @delta_y.setter
-    def delta_y(self, delta_y):
-        self.y = delta_y
+    def move(self, delta_x, delta_y):
+        self.__x += delta_x
+        self.__y += delta_y
+
